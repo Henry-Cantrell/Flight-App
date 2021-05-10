@@ -1,0 +1,27 @@
+<h2> Search for a flight: </h2>
+
+<%= simple_form_for :params, url: root_path, method: 'GET' do |f| %>
+    <p>
+        <%= f.input :origin_id, 
+        :collection => @flights_origins, 
+        :include_blank => false, 
+        :label => 'Departure flight:' %>
+    </p>
+    <p>
+        <%= f.input :destination_id, 
+        :collection => @flights_destinations, 
+        :include_blank => false, 
+        :label => 'Arrival flight:' %>
+    </p>
+    <p>
+        <%= f.input :departure_date, 
+        :collection => @flights_dates, 
+        :include_blank => false,
+        :label => 'Date of flight:' %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
+
