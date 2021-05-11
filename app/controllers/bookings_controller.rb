@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
     def new
         #Logic for chosen flight info display
-        @numtest = 6
         @booking_flight = nil
         @booking_flight_date = nil
         @booking_flight_origin = nil
@@ -20,7 +19,7 @@ class BookingsController < ApplicationController
             @booking_flight_id = @booking_flight.map{ |f| f.id }
             @booking_passenger_count = @search['passenger_count']
         end
-        #Logic for actually creating booking/passenger
+        #Logic for creating booking/passenger
         @booking = Booking.new
         3.times { @booking.passengers.build }
     end
