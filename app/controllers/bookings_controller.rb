@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
         end
         #Logic for creating booking/passenger
         @booking = Booking.new
-        3.times { @booking.passengers.build }
+        @booking_passenger_count.to_i.times { @booking.passengers.build }
     end
 
     def show

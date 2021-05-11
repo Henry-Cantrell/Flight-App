@@ -1,14 +1,12 @@
-<%= form_with model: @booking do |form| %>
+<%= form_with model: @booking, local:true do |form| %>
     Fill out passenger info:
     <ul>
         <%= form.fields_for :passengers do |passengers_form| %>
             <li>
-                <%= passengers_form.label :passenger_name %>
-                <%= passengers_form.text_field :passenger_name %>
-                <%= passengers_form.label :passenger_email %>
-                <%= passengers_form.text_field :passenger_email %>
+                <p>Hello!</p>
             </li>
         <% end %>
     </ul>
     <%= form.submit %>
 <% end %>
+
