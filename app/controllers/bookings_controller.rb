@@ -1,11 +1,13 @@
 class BookingsController < ApplicationController
     def new
         #Logic for chosen flight info display
+        @numtest = 6
         @booking_flight = nil
         @booking_flight_date = nil
         @booking_flight_origin = nil
         @booking_flight_arrival = nil
         @booking_flight_id = nil
+        @booking_passenger_count = nil
         @search = params['flight_select']
         if @search.present?
             #Converts model query results into arrays to be accessed for display in views
@@ -18,6 +20,9 @@ class BookingsController < ApplicationController
             @booking_flight_id = @booking_flight.map{ |f| f.id }
             @booking_passenger_count = @search['passenger_count']
         end
+        #Logic for actually creating booking/passenger
+        @booking = Booking.new
+        3.times { @booking.passengers.build }
     end
 
     def show
@@ -31,5 +36,9 @@ class BookingsController < ApplicationController
 
     def booking_params
         params.require(:booking).permit(:passenger_count, :flight_id)
+    end
+
+    def passenger_params
+        params.require(:passenger).permit(:name, :email)
     end
 end
