@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
         @booking_flight_arrival = nil
         @booking_flight_id = nil
         @booking_passenger_count = nil
+        @flight_id = nil
         @search = params['flight_select']
         if @search.present?
             #Converts model query results into arrays to be accessed for display in views
@@ -29,15 +30,16 @@ class BookingsController < ApplicationController
     end
 
     def create
+        @booking_new = Booking.new(booking_params)
+        if @booking_new.save!
+            redirect_to root_path
+        else
+        end
     end
 
     private
 
     def booking_params
-        params.require(:booking).permit(:passenger_count, :flight_id)
-    end
-
-    def passenger_params
-        params.require(:passenger).permit(:name, :email)
+        params.require(:booking).permit(:flight_id, passengers_attributes: [:id, :name, :email])
     end
 end
