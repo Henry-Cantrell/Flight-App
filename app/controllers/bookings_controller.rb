@@ -26,14 +26,15 @@ class BookingsController < ApplicationController
     end
 
     def show
-        @bookings = Booking.all
+        @booking = Booking.find(params[:id])
     end
 
     def create
         @booking_new = Booking.new(booking_params)
         if @booking_new.save!
-            redirect_to root_path
+            redirect_to booking_path
         else
+            render :new
         end
     end
 
