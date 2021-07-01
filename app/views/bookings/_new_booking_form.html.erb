@@ -1,6 +1,6 @@
 <%= form_with url:'/bookings', model: @booking, local:true do |form| %>
     <%= form.hidden_field :flight_id, value: @flight_id %>
-    Fill out passenger info:
+    <h1 class="is-size-4">Fill out passenger info:</h1>
     <ul>
         <%= form.fields_for :passengers do |passengers_form| %>
             <%= passengers_form.hidden_field :id, value:nil %>
@@ -12,6 +12,6 @@
             </li>
         <% end %>
     </ul>
-    <%= form.submit 'Create your new booking' %>
+    <button type="submit" class="button is-outlined" style="margin-top:10px">Create your booking</button>
 <% end %>
 
