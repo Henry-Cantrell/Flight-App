@@ -9,9 +9,30 @@
   <div class="control">
 	<% unless @flight_search_results.empty? %>
   	<div class="select">
-	    <select id="selectbasic-0" name="origin_id" class="">
+	    <select id="selectbasic-0" name="flight_id" class="">
             <%= @flight_search_results_names.each do |name| %>
 	            <option value= <%= name[1] %> ><%= name[0] %></option>
+            <% end %>
+	    </select>
+	<% else %>
+	No matching flights, please make another choice
+	<% end %>
+	</div>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="field">
+  <label class="label" for="selectbasic-0">Number of passengers:</label>
+  <div class="control">
+	<% unless @flight_search_results.empty? %>
+  	<div class="select">
+	    <select id="selectbasic-0" name="passenger_count" class="">
+            <%= @flight_search_results_names.each do |name| %>
+	            <option value= <%= 1 %> ><%= 1 %></option>
+		    <option value= <%= 2 %> ><%= 2 %></option>
+		    <option value= <%= 3 %> ><%= 3 %></option>
+		    <option value= <%= 4 %> ><%= 4 %></option>
             <% end %>
 	    </select>
 	<% else %>

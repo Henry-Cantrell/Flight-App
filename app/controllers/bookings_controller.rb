@@ -8,17 +8,17 @@ class BookingsController < ApplicationController
         @booking_flight_id = nil
         @booking_passenger_count = nil
         @flight_id = nil
-        @search = params['flight_select']
+        @search = params['passenger_count']
         if @search.present?
             #Converts model query results into arrays to be accessed for display in views
-            @flight_id = @search['id']
+            @flight_id = params['flight_id']
             @booking_flight = Flight.where(id: @flight_id)
             @booking_flight_name = @booking_flight.map{ |f| f.name }
             @booking_flight_date = @booking_flight.map{ |f| f.departure_date }
             @booking_flight_origin = @booking_flight.map{ |f| f.origin.airport_code }
             @booking_flight_destination = @booking_flight.map{ |f| f.destination.airport_code }
             @booking_flight_id = @booking_flight.map{ |f| f.id }
-            @booking_passenger_count = @search['passenger_count']
+            @booking_passenger_count = params['passenger_count']
         end
         #Logic for creating booking/passenger
         @booking = Booking.new
