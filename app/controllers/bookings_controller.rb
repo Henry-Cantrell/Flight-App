@@ -32,7 +32,8 @@ class BookingsController < ApplicationController
     def create
         @booking_new = Booking.new(booking_params)
         if @booking_new.save!
-            redirect_to booking_path
+            PassengerMailer.with(booking_id: @booking_new.id).confirmation_email.deliver_now
+            redirect_to root_path
         else
             render :new
         end
