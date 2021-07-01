@@ -9,14 +9,15 @@ class FlightsController < ApplicationController
         @flight_search_results = nil
         @flight_search_results_names = nil
         #Logic for search results lookup that parses nested URL key-value pairs for query purposes
-        @search = params['lookup']
+        @search = params[:origin_id]
         if @search.present?
-            @origin = @search['origin_id']
-            @destination = @search['destination_id']
-            @departure_date = @search['departure_date']
+            @origin = params['origin_id']
+            @destination = params['destination_id']
+            @departure_date = params['departure_date']
             @flight_search_results = Flight.where(origin_id: @origin, destination_id: @destination, departure_date: @departure_date)
             @flight_search_results_names = @flight_search_results.map{ |f| [f.name, f.id] }
         end
     end
+
 end
 
