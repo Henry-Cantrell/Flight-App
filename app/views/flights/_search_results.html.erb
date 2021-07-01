@@ -3,18 +3,20 @@
 <div class='box'>
 <%= simple_form_for :flight_select, url: new_booking_path, method: :get do |f| %>
 
-<legend>Search results:</legend>
-
 <!-- Select Basic -->
 <div class="field">
   <label class="label" for="selectbasic-0">Matching flights:</label>
   <div class="control">
+	<% unless @flight_search_results.empty? %>
   	<div class="select">
 	    <select id="selectbasic-0" name="origin_id" class="">
             <%= @flight_search_results_names.each do |name| %>
 	            <option value= <%= name[1] %> ><%= name[0] %></option>
             <% end %>
 	    </select>
+	<% else %>
+	No matching flights, please make another choice
+	<% end %>
 	</div>
   </div>
 </div>
