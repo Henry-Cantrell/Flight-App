@@ -1,27 +1,68 @@
-<h2> Search for a flight: </h2>
+<div class="columns">
+<div class="column is-one-quarter">
+<div class="box">
+<!-- Form Name -->
 
-<%= simple_form_for :lookup, url: root_path, method: 'GET' do |form| %>
-    <p>
-        <%= form.input :origin_id, 
-        :collection => @flights_origins, 
-        :include_blank => false, 
-        :label => 'Departure flight:' %>
-    </p>
-    <p>
-        <%= form.input :destination_id, 
-        :collection => @flights_destinations, 
-        :include_blank => false, 
-        :label => 'Arrival flight:' %>
-    </p>
-    <p>
-        <%= form.input :departure_date, 
-        :collection => @flights_dates, 
-        :include_blank => false,
-        :label => 'Date of flight:' %>
-    </p>
-    <p>
-        <%= form.submit %>
-    </p>
-<% end %>
+<form action="" method="post">
+
+<legend>Search for a flight:</legend>
+
+<!-- Select Basic -->
+<div class="field">
+  <label class="label" for="selectbasic-0">Departure flight</label>
+  <div class="control">
+  	<div class="select">
+	    <select id="selectbasic-0" name="selectbasic-0" class="">
+            <%= @flights_origins.each do |origin| %>
+	            <option><%= origin[0] %></option>
+            <% end %>
+	    </select>
+	</div>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="field">
+  <label class="label" for="selectbasic-2">Arrival flight</label>
+  <div class="control">
+  	<div class="select">
+	    <select id="selectbasic-2" name="selectbasic-2" class="">
+        <%= @flights_destinations.each do |destination| %>
+            <option><%= destination[0] %></option>
+        <% end %>
+	    </select>
+	</div>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="field">
+  <label class="label" for="selectbasic-2">Select date of flight</label>
+  <div class="control">
+  	<div class="select">
+	    <select id="selectbasic-2" name="selectbasic-2" class="">
+        <%= @flights_dates.each do |date| %>
+            <option><%= date[0] %></option>
+        <% end %>
+	    </select>
+	</div>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="field">
+  <label class="label" for="singlebutton-1">Single Button</label>
+  <div class="control">
+    <button id="singlebutton-1" name="singlebutton-1" type="submit" class="button is-success">Search flights</button>
+  </div>
+</div>
+
+
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+
 
 
