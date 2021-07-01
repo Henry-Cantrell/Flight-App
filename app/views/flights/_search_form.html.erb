@@ -3,7 +3,7 @@
 <div class="box">
 <!-- Form Name -->
 
-<form action="" method="post">
+<form action="/flights" method="get" name="lookup">
 
 <legend>Search for a flight:</legend>
 
@@ -12,9 +12,9 @@
   <label class="label" for="selectbasic-0">Departure flight</label>
   <div class="control">
   	<div class="select">
-	    <select id="selectbasic-0" name="selectbasic-0" class="">
+	    <select id="selectbasic-0" name="origin_id" class="">
             <%= @flights_origins.each do |origin| %>
-	            <option><%= origin[0] %></option>
+	            <option value= <%= origin[1] %> ><%= origin[0] %></option>
             <% end %>
 	    </select>
 	</div>
@@ -26,9 +26,9 @@
   <label class="label" for="selectbasic-2">Arrival flight</label>
   <div class="control">
   	<div class="select">
-	    <select id="selectbasic-2" name="selectbasic-2" class="">
+	    <select id="selectbasic-2" name="destination_id" class="">
         <%= @flights_destinations.each do |destination| %>
-            <option><%= destination[0] %></option>
+            <option value= <%= destination[1] %> ><%= destination[0] %></option>
         <% end %>
 	    </select>
 	</div>
@@ -40,9 +40,9 @@
   <label class="label" for="selectbasic-2">Select date of flight</label>
   <div class="control">
   	<div class="select">
-	    <select id="selectbasic-2" name="selectbasic-2" class="">
+	    <select id="selectbasic-2" name="departure_date" class="">
         <%= @flights_dates.each do |date| %>
-            <option><%= date[0] %></option>
+            <option value= <%= date[0] %> ><%= date[0] %></option>
         <% end %>
 	    </select>
 	</div>
@@ -51,9 +51,8 @@
 
 <!-- Button -->
 <div class="field">
-  <label class="label" for="singlebutton-1">Single Button</label>
   <div class="control">
-    <button id="singlebutton-1" name="singlebutton-1" type="submit" class="button is-success">Search flights</button>
+    <button type="submit" class="button is-success">Search flights</button>
   </div>
 </div>
 
