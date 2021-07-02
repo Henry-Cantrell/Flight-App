@@ -1,24 +1,9 @@
-# README
+This project is a flight booker made using Ruby on Rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It allows users to:
 
-Things you may want to cover:
+    Select departure and arrival flights along with a date from a populated dropdown list
+    Choose a compatible flight
+    Book themselves as well as other passengers on the flight
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The application logic was written using Ruby on Rails and the graphical elements were created via Bulma.
