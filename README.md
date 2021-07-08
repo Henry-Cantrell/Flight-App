@@ -1,5 +1,7 @@
 This project is a flight booker made using Ruby on Rails.
 
+See it live here: https://flight-booker-1997.herokuapp.com/
+
 It allows users to:
 
     Select departure and arrival flights along with a date from a populated dropdown list
