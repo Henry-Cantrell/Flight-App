@@ -1,0 +1,24 @@
+<% @bookings.each do |booking| %>
+<div class='columns'>
+<div class='column is-half'>
+<article class="message">
+  <div class="message-header">
+    <p>Booking for <%= booking.passengers[0].name %></p>
+  </div>
+  <div class="message-body">
+    Passenger list:
+    <% booking.passengers.each do |passenger| %>
+	<ol>
+	<%= passenger.name %>
+	</ol>
+	<% end %>
+	<%= Flight.find_by(id: booking.flight_id).name %>
+    Departure date:
+    <%= Flight.find_by(id: booking.flight_id).departure_date %>
+  </div>
+</article>
+</div>
+</div>
+<% end %>
+
+

@@ -1,4 +1,10 @@
 class BookingsController < ApplicationController
+
+    def index
+	@bookings = Booking.all
+
+    end
+
     def new
         #Logic for chosen flight info display
         @booking_flight = nil
