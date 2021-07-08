@@ -1,4 +1,4 @@
-This project is a flight booker made using Ruby on Rails.
+This project is a flight booker made using Ruby on Rails. It is a work in progress, but most of the core features are present. 
 
 See it live here: https://flight-booker-1997.herokuapp.com/
 
