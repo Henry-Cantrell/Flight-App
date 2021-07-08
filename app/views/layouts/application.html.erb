@@ -10,13 +10,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="/">
-      <h1 class='is-size-3'>Book a new flight</h1>
-    </a>
-    <a class="navbar-item" href="/bookings">
-      <h1 class='is-size-3'>Bookings</h1>
+
+  <nav class="navbar has-background-primary" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand has-text-link-white">
+    <a class="navbar-item" href="#">
+      <nav class="breadcrumb" aria-label="breadcrumbs">
+  	<ul>
+    		<li><a href="/bookings"><h1 class="is-size-4 has-text-white">Bookings</h1></a></li>
+    		<li><a href="/"><h1 class="is-size-4 has-text-white">Search flights</h1></a></li>
+  	</ul>
+      </nav>
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
